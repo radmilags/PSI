@@ -29,5 +29,14 @@ namespace _1__Aplicacao.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Categoria categoria)
+        {
+            categorias.Add(categoria);
+            categoria.CategoriaId = categorias.Select(m => m.CategoriaId).Max() + 1;
+            return RedirectToAction("Index");
+        }
     }
 }
