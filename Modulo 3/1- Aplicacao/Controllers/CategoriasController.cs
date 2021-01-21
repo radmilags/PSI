@@ -23,5 +23,11 @@ namespace _1__Aplicacao.Controllers
         {
             return View(categorias);
         }
+
+        // GET: Categorias
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
