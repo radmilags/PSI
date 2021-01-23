@@ -39,7 +39,12 @@ namespace _1__Aplicacao.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        public ActionResult Edit(long id)
+        {
+            return View(categorias.Where(m => m.CategoriaId == id).First());
+        }
+
+        [HttpPost] //Informa que não é do tipo Get
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Categoria categoria)
         {
@@ -49,6 +54,7 @@ namespace _1__Aplicacao.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public ActionResult Details(long id)
         {
             return View(categorias.Where(m => m.CategoriaId == id).First());
