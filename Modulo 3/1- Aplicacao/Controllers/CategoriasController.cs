@@ -39,9 +39,14 @@ namespace _1__Aplicacao.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Edit(long id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Categoria categoria)
         {
-            return View(categorias.Where(m => m.CategoriaId == id).First());
+            categorias.Remove(
+            categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
+            categorias.Add(categoria);
+            return RedirectToAction("Index");
         }
     }
 }
