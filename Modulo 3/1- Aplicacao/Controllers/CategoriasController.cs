@@ -39,6 +39,7 @@ namespace _1__Aplicacao.Controllers
             return RedirectToAction("Index");
         }
 
+        //Método Get
         public ActionResult Edit(long id)
         {
             return View(categorias.Where(m => m.CategoriaId == id).First());
