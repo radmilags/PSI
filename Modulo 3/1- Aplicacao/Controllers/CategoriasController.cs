@@ -48,5 +48,10 @@ namespace _1__Aplicacao.Controllers
             categorias.Add(categoria);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Details(long id)
+        {
+            return View(categorias.Where(m => m.CategoriaId == id).First());
+        }
     }
 }
