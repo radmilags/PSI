@@ -38,5 +38,10 @@ namespace _1__Aplicacao.Controllers
             categoria.CategoriaId = categorias.Select(m => m.CategoriaId).Max() + 1;
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit(long id)
+        {
+            return View(categorias.Where(m => m.CategoriaId == id).First());
+        }
     }
 }
