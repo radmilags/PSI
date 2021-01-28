@@ -76,3 +76,9 @@ C:\Users\milae\source\repos\radmilags\PSI\Modulo 3\1- Aplicacao\obj\Debug\1- Apl
 C:\Users\milae\source\repos\radmilags\PSI\Modulo 3\1- Aplicacao\obj\Debug\1- Aplicacao.csproj.CopyComplete
 C:\Users\milae\source\repos\radmilags\PSI\Modulo 3\1- Aplicacao\obj\Debug\1- Aplicacao.dll
 C:\Users\milae\source\repos\radmilags\PSI\Modulo 3\1- Aplicacao\obj\Debug\1- Aplicacao.pdb
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\EntityFramework.dll
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\EntityFramework.SqlServer.dll
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\EntityFramework.xml
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\EntityFramework.SqlServer.xml
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\zh-Hans\EntityFramework.resources.dll
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
