@@ -14,7 +14,7 @@ namespace _1__Aplicacao.Controllers
         // GET: Fabricantes
         public ActionResult Index()
         {
-            return View();
+            return View(context.Fabricantes.OrderBy(c => c.Nome));
         }
     }
 }
