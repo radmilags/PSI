@@ -3,6 +3,7 @@ using _1__Aplicacao.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -31,6 +32,21 @@ namespace _1__Aplicacao.Controllers
             context.Fabricantes.Add(fabricante);
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // GET: Fabricantes/Edit/5
+        public ActionResult Edit(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Fabricante fabricante = context.Fabricantes.Find(id);
+            if (fabricante == null)
+            {
+                return HttpNotFound();
+            }
+            return View(fabricante);
         }
     }
 }
