@@ -93,5 +93,16 @@ namespace _1__Aplicacao.Controllers
             }
             return View(fabricante);
         }
+
+        // POST: Fabricantes/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(long id)
+        {
+            Fabricante fabricante = context.Fabricantes.Find(id);
+            context.Fabricantes.Remove(fabricante);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
