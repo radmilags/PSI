@@ -1,4 +1,5 @@
 ﻿using _1__Aplicacao.Context;
+using _1__Aplicacao.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,21 @@ namespace _1__Aplicacao.Controllers
         public ActionResult Index()
         {
             return View(context.Fabricantes.OrderBy(c => c.Nome));
+        }
+
+        // GET: Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+        // POST: Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Fabricante fabricante)
+        {
+            context.Fabricantes.Add(fabricante);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
