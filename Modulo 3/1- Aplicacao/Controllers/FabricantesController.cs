@@ -17,7 +17,7 @@ namespace _1__Aplicacao.Controllers
         // GET: Fabricantes
         public ActionResult Index()
         {
-            return View(context.Fabricantes.OrderBy(c => c.Nome));
+            return View(context.Fabricantes.OrderBy(c => c.Nome)); //Select * from Fabricante order by Nome
         }
 
         // GET: Create
@@ -25,6 +25,7 @@ namespace _1__Aplicacao.Controllers
         {
             return View();
         }
+
         // POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
