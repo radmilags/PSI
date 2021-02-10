@@ -1,9 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
+    @RenderSection("styles", false)
 </head>
 <body>
     <div class="container">
@@ -20,7 +22,7 @@
         <div class="row">
             <div class="col-xs-3 col-md-3 bg-success">
                 <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li id="liHome" role="presentation" class="active"><a href="#">Home</a></li>
                     <li id="liCategorias" role="presentation">
                         @Html.ActionLink("Categorias", "Index", "Categorias")
                     </li>
@@ -42,12 +44,6 @@
     </div>
     <script src="@Url.Content("~/scripts/jquery-1.10.2.js")"></script>
     <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('li').removeClass("active");
-            $('#liFabricantes').addClass("active");
-        });
-    </script>
-    @RenderSection("Script page", false);
+    @RenderSection("ScriptPage", false);
 </body>
 </html>
