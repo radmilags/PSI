@@ -1,7 +1,16 @@
 ﻿@model IEnumerable<_1__Aplicacao.Models.Categoria>
 
+<!-- add categoria-->
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Listagem de FABRICANTES";
+}
+
+@if (@TempData["Message"] != null)
+{
+<div class="alert alert-success" role="alert">
+    @TempData["Message"]
+</div>
 }
 
 <!DOCTYPE html>
@@ -28,18 +37,36 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoriaId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CategoriaId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoriaId })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoriaId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CategoriaId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CategoriaId })
+            </td>
+        </tr>
         }
 
     </table>
 </body>
 </html>
+
+<!--  add categoria-->
+@section styles{
+    <link href="@Url.Content("~/content/DataTables/css/dataTables.bootstrap.css")" rel="stylesheet" />
+}
+@section ScriptPage{
+    <script src="@Url.Content("~/scripts/DataTables/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/scripts/DataTables/dataTables.bootstrap.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.table').dataTable({
+                "order": [[1, "asc"]]
+            });
+            $('li').removeClass("active");
+            $('#liFabricantes').addClass("active");
+        });
+    </script>
+}
