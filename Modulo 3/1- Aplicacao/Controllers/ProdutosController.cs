@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using _1__Aplicacao.Models;
 using System.Data.Entity;
+using System.Net;
 
 namespace _1__Aplicacao.Controllers
 {
@@ -52,9 +53,22 @@ namespace _1__Aplicacao.Controllers
         }
 
         // GET: Produtos/Edit
-        public ActionResult Edit(int id)
+        public ActionResult Edit(long? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = context.Produtos.Find(id);
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome), "CategoriaId",
+            "Nome", produto.CategoriaId);
+            ViewBag.FabricanteId = new SelectList(context.Fabricantes.OrderBy(b => b.Nome), "FabricanteId",
+            "Nome", produto.FabricanteId);
+            return View(produto);
         }
 
         // POST: Produtos/Edit
