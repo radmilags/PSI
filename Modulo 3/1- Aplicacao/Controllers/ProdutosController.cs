@@ -128,7 +128,6 @@ namespace _1__Aplicacao.Controllers
                 TempData["Message"] = "Produto " + produto.Nome.ToUpper() + " foi removido";
                 return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
             }
             catch
             {
