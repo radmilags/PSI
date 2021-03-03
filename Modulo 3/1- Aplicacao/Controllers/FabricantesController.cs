@@ -80,7 +80,7 @@ namespace _1__Aplicacao.Controllers
             return View(fabricante);
         }
 
-        // GET: Fabricantes/Delete/5
+        // GET: Fabricantes/Delete
         public ActionResult Delete(long? id)
         {
             if (id == null)

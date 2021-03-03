@@ -1,9 +1,12 @@
-﻿using System;
+﻿using _1__Aplicacao.Context;
+using _1__Aplicacao.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using _1__Aplicacao.Models;
 
 namespace _1__Aplicacao.Controllers
 {
@@ -17,6 +20,8 @@ namespace _1__Aplicacao.Controllers
             new Categoria() { CategoriaId = 4, Nome = "Mouses"},
             new Categoria() { CategoriaId = 5, Nome = "Desktops"}
         };
+
+        private EFContext context = new _1__Aplicacao.Context.EFContext();
 
         // GET: Categorias
         public ActionResult Index()
@@ -61,7 +66,7 @@ namespace _1__Aplicacao.Controllers
             return View(categorias.Where(m => m.CategoriaId == id).First());
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public ActionResult Delete(long id)
         {
             return View(categorias.Where(m => m.CategoriaId == id).First());
@@ -74,6 +79,35 @@ namespace _1__Aplicacao.Controllers
             categorias.Remove(
             categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
             return RedirectToAction("Index");
+        }*/
+
+        
+         // GET: Categorias/Delete
+        public ActionResult Delete(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Categoria categoria = context.Categorias.Find(id);
+            if (categorias == null)
+            {
+                return HttpNotFound();
+            }
+            return View(categorias);
         }
+
+        // POST: Categorias/Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(long id)
+        {
+            Categoria categoria = context.Categorias.Find(id);
+            context.Categorias.Remove(categoria);
+            context.SaveChanges();
+            TempData["Message"] = "Categoria " + categoria.Nome.ToUpper() + " foi removido";
+            return RedirectToAction("Index");
+        }
+         
     }
 }
