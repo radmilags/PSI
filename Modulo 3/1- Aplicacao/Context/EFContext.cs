@@ -14,6 +14,7 @@ namespace _1__Aplicacao.Context
             Database.SetInitializer<EFContext>(
             new DropCreateDatabaseIfModelChanges<EFContext>());
         }
+
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Fabricante> Fabricantes { get; set; }
         public DbSet<Produto> Produtos { get; set; }

@@ -44,13 +44,13 @@ namespace _1__Aplicacao.Controllers
             }
         }
 
-        // GET: Produtos/Edit/5
+        // GET: Produtos/Edit
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Produtos/Edit/5
+        // POST: Produtos/Edit
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -66,7 +66,7 @@ namespace _1__Aplicacao.Controllers
             }
         }
 
-        // GET: Produtos/Delete/5
+        // GET: Produtos/Delete
         public ActionResult Delete(int id)
         {
             return View();
