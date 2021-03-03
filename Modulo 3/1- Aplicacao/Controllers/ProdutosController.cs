@@ -20,7 +20,7 @@ namespace _1__Aplicacao.Controllers
             return View(produtos);
         }
 
-        // GET: Produtos/Details/5
+        // GET: Produtos/Details/
         public ActionResult Details(int id)
         {
             return View();
@@ -29,6 +29,8 @@ namespace _1__Aplicacao.Controllers
         // GET: Produtos/Create
         public ActionResult Create()
         {
+            ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome),"CategoriaId", "Nome");
+            ViewBag.FabricanteId = new SelectList(context.Fabricantes.OrderBy(b => b.Nome),"FabricanteId", "Nome");
             return View();
         }
 
