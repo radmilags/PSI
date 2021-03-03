@@ -73,11 +73,13 @@ namespace _1__Aplicacao.Controllers
 
         // POST: Produtos/Edit
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Produto produto)
         {
             try
             {
                 // TODO: Add update logic here
+                context.Entry(produto).State = EntityState.Modified;
+                context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
