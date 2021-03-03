@@ -36,17 +36,18 @@ namespace _1__Aplicacao.Controllers
 
         // POST: Produtos/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Produto produto)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                context.Produtos.Add(produto);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(produto);
             }
         }
 
