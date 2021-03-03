@@ -100,18 +100,33 @@ namespace _1__Aplicacao.Controllers
         }
 
         // GET: Produtos/Delete
-        public ActionResult Delete(int id)
+        public ActionResult Delete(long? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = context.Produtos.Where(p => p.ProdutoId == id).
+            Include(c => c.Categoria).Include(f => f.Fabricante).First();
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produto);
         }
 
-        // POST: Produtos/Delete/5
+        // POST: Produtos/Delete
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
+                Produto produto = context.Produtos.Find(id);
+                context.Produtos.Remove(produto);
+                context.SaveChanges();
+                TempData["Message"] = "Produto " + produto.Nome.ToUpper() + " foi removido";
+                return RedirectToAction("Index");
 
                 return RedirectToAction("Index");
             }
