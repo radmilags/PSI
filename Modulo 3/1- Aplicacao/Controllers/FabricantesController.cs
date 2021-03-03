@@ -51,7 +51,7 @@ namespace _1__Aplicacao.Controllers
             return View(fabricante);
         }
 
-        // POST: Fabricantes/Edit/5
+        // POST: Fabricantes/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Fabricante fabricante)
@@ -65,7 +65,7 @@ namespace _1__Aplicacao.Controllers
             return View(fabricante);
         }
 
-        // GET: Fabricantes/Details/5
+        // GET: Fabricantes/Details
         public ActionResult Details(long? id)
         {
             if (id == null)
@@ -95,7 +95,7 @@ namespace _1__Aplicacao.Controllers
             return View(fabricante);
         }
 
-        // POST: Fabricantes/Delete/5
+        // POST: Fabricantes/Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)
