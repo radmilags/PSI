@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using _1__Aplicacao.Models;
+using System.Data.Entity;
 
 namespace _1__Aplicacao.Controllers
 {
@@ -13,7 +15,9 @@ namespace _1__Aplicacao.Controllers
         // GET: Produtos
         public ActionResult Index()
         {
-            return View(context.Produtos.OrderBy(c => c.Nome));
+            //return View(context.Produtos.OrderBy(c => c.Nome));
+            var produtos = context.Produtos.Include(c => c.Categoria).Include(f => f.Fabricante).OrderBy(n => n.Nome);
+            return View(produtos);
         }
 
         // GET: Produtos/Details/5
