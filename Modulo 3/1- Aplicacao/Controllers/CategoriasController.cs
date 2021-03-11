@@ -1,5 +1,5 @@
 ﻿using _1__Aplicacao.Context;
-using _1__Aplicacao.Models;
+using Modelo.Tabelas;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
