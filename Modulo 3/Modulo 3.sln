@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1- Aplicacao", "1- Aplicacao\1- Aplicacao.csproj", "{6455E027-DAEB-4534-A8F1-9609CDF7954E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{8B96A44E-2152-4591-BF88-128B787E539B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{0C1B8F08-88CB-4B49-ACE6-3E5FAF25A335}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modelo", "Modelo\Modelo.csproj", "{8B96A44E-2152-4591-BF88-128B787E539B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{8B96A44E-2152-4591-BF88-128B787E539B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B96A44E-2152-4591-BF88-128B787E539B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B96A44E-2152-4591-BF88-128B787E539B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C1B8F08-88CB-4B49-ACE6-3E5FAF25A335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C1B8F08-88CB-4B49-ACE6-3E5FAF25A335}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C1B8F08-88CB-4B49-ACE6-3E5FAF25A335}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C1B8F08-88CB-4B49-ACE6-3E5FAF25A335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
