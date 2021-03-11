@@ -49,12 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\EFContext.cs" />
+    <Compile Include="DAL\Cadastros\FabricanteDAL.cs" />
+    <Compile Include="DAL\Cadastros\ProdutosDAL.cs" />
+    <Compile Include="DAL\Tabelas\CategoriaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\Cadastros\" />
-    <Folder Include="DAL\Tabelas\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Modelo\Modelo.csproj">
       <Project>{8b96a44e-2152-4591-bf88-128b787e539b}</Project>
