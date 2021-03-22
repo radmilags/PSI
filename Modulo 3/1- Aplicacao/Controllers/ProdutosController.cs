@@ -18,12 +18,6 @@ namespace _1__Aplicacao.Controllers
         private CategoriaServico categoriaServico = new CategoriaServico();
         private FabricanteServico fabricanteServico = new FabricanteServico();
 
-        // GET: Produtos
-        public ActionResult Index()
-        {
-            return View(produtoServico.ObterProdutosClassificadosPorNome());
-        }
-
         private ActionResult ObterVisaoProdutoPorId(long? id)
         {
             if (id == null)
@@ -75,6 +69,14 @@ namespace _1__Aplicacao.Controllers
             }
         }
 
+        /*-------------------------------------------------------------------------------------*/
+        // GET: Produtos
+        public ActionResult Index()
+        {
+            return View(produtoServico.ObterProdutosClassificadosPorNome());
+        }
+
+
         // GET: Produtos/Details/
         public ActionResult Details(int? id)
         {
@@ -92,17 +94,7 @@ namespace _1__Aplicacao.Controllers
         [HttpPost]
         public ActionResult Create(Produto produto)
         {
-            try
-            {
-                // TODO: Add insert logic here
-                context.Produtos.Add(produto);
-                context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View(produto);
-            }
+            return GravarProduto(produto);
         }
 
         // GET: Produtos/Edit
@@ -116,18 +108,7 @@ namespace _1__Aplicacao.Controllers
         [HttpPost]
         public ActionResult Edit(Produto produto)
         {
-            try
-            {
-                // TODO: Add update logic here
-                context.Entry(produto).State = EntityState.Modified;
-                context.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return GravarProduto(produto);
         }
 
         // GET: Produtos/Delete
@@ -142,13 +123,9 @@ namespace _1__Aplicacao.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-                Produto produto = context.Produtos.Find(id);
-                context.Produtos.Remove(produto);
-                context.SaveChanges();
+                Produto produto = produtoServico.EliminarProdutoPorId(id);
                 TempData["Message"] = "Produto " + produto.Nome.ToUpper() + " foi removido";
                 return RedirectToAction("Index");
-
             }
             catch
             {
