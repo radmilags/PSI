@@ -8,4 +8,8 @@
     <Folder Include="Cadastros\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="jQuery" Version="2.2.4" />
+  </ItemGroup>
+
 </Project>
