@@ -14,16 +14,13 @@ namespace _1__Aplicacao.Controllers
 {
     public class ProdutosController : Controller
     {
-        // private EFContext context = new EFContext(); // Acesso ao contexto (comentado)
         private ProdutoServico produtoServico = new ProdutoServico();
         private CategoriaServico categoriaServico = new CategoriaServico();
         private FabricanteServico fabricanteServico = new FabricanteServico();
+
         // GET: Produtos
         public ActionResult Index()
         {
-            //var produtos = context.Produtos.Include(c => c.Categoria). // Acesso ao contexto
-            // Include(f => f.Fabricante).OrderBy(n => n.Nome); // (comentado)
-            //return View(produtos);
             return View(produtoServico.ObterProdutosClassificadosPorNome());
         }
 
@@ -44,17 +41,7 @@ namespace _1__Aplicacao.Controllers
         // GET: Produtos/Details/
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Produto produto = context.Produtos.Where(p => p.ProdutoId == id).
-            Include(c => c.Categoria).Include(f => f.Fabricante).First();
-            if (produto == null)
-            {
-                return HttpNotFound();
-            }
-            return View(produto);
+            return ObterVisaoProdutoPorId(id);
         }
 
         // GET: Produtos/Create
@@ -122,16 +109,7 @@ namespace _1__Aplicacao.Controllers
         // GET: Produtos/Delete
         public ActionResult Delete(long? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Produto produto = context.Produtos.Where(p => p.ProdutoId == id).Include(c => c.Categoria).Include(f => f.Fabricante).First();
-            if (produto == null)
-            {
-                return HttpNotFound();
-            }
-            return View(produto);
+            return ObterVisaoProdutoPorId(id);
         }
 
         // POST: Produtos/Delete
