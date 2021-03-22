@@ -1,4 +1,4 @@
-﻿using _1__Aplicacao.Context;
+﻿using Persistencia.Context;
 using Modelo.Tabelas;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace _1__Aplicacao.Controllers
 {
     public class CategoriasController : Controller
     {
-        private EFContext context = new _1__Aplicacao.Context.EFContext();
+        private EFContext context = new Persistencia.Context.EFContext();
 
         // GET: Categorias
         public ActionResult Index()
