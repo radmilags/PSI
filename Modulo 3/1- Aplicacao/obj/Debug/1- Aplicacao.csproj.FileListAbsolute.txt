@@ -87,3 +87,5 @@ C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\Persistencia
 C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\Modelo.pdb
 C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\Persistencia.pdb
 C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\Persistencia.dll.config
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\Servico.dll
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\1- Aplicacao\bin\Servico.pdb
