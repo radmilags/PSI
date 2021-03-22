@@ -8,7 +8,7 @@ using Persistencia.DAL.Cadastros;
 
 namespace Servico.Cadastros
 {
-    class ProdutoServico
+    public class ProdutoServico
     {
         private ProdutoDAL produtoDAL = new ProdutoDAL();
         public IQueryable<Produto> ObterProdutosClassificadosPorNome()

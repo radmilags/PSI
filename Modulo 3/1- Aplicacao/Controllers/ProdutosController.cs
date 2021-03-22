@@ -1,4 +1,4 @@
-﻿using Persistencia.Context;
+﻿//using Persistencia.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +7,38 @@ using System.Web.Mvc;
 using Modelo.Cadastros;
 using System.Data.Entity;
 using System.Net;
+using Servico.Cadastros;
+using Servico.Tabelas;
 
 namespace _1__Aplicacao.Controllers
 {
     public class ProdutosController : Controller
     {
-        private EFContext context = new EFContext();
+        // private EFContext context = new EFContext(); // Acesso ao contexto (comentado)
+        private ProdutoServico produtoServico = new ProdutoServico();
+        private CategoriaServico categoriaServico = new CategoriaServico();
+        private FabricanteServico fabricanteServico = new FabricanteServico();
         // GET: Produtos
         public ActionResult Index()
         {
-            //return View(context.Produtos.OrderBy(c => c.Nome));
-            var produtos = context.Produtos.Include(c => c.Categoria).Include(f => f.Fabricante).OrderBy(n => n.Nome);
-            return View(produtos);
+            //var produtos = context.Produtos.Include(c => c.Categoria). // Acesso ao contexto
+            // Include(f => f.Fabricante).OrderBy(n => n.Nome); // (comentado)
+            //return View(produtos);
+            return View(produtoServico.ObterProdutosClassificadosPorNome());
+        }
+
+        private ActionResult ObterVisaoProdutoPorId(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = produtoServico.ObterProdutoPorId((long)id);
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produto);
         }
 
         // GET: Produtos/Details/

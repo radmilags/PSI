@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Servico.Tabelas
 {
-    class CategoriaServico
+    public class CategoriaServico
     {
         private CategoriaDAL categoriaDAL = new CategoriaDAL();
         public IQueryable<Categoria> ObterCategoriasClassificadasPorNome()

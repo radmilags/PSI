@@ -8,7 +8,7 @@ using Persistencia.DAL.Cadastros;
 
 namespace Servico.Cadastros
 {
-    class FabricanteServico
+    public class FabricanteServico
     {
         private FabricanteDAL fabricanteDAL = new FabricanteDAL();
         public IQueryable<Fabricante> ObterFabricantesClassificadosPorNome()
