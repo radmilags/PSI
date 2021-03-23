@@ -1,16 +1,15 @@
-﻿//using Persistencia.Context;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Modelo.Cadastros;
 using System.Data.Entity;
 using System.Net;
+using Modelo.Cadastros;
 using Servico.Cadastros;
 using Servico.Tabelas;
 
-namespace _1__Aplicacao.Controllers
+namespace Projeto01.Areas.Cadastros.Controllers
 {
     public class ProdutosController : Controller
     {
@@ -18,6 +17,8 @@ namespace _1__Aplicacao.Controllers
         private CategoriaServico categoriaServico = new CategoriaServico();
         private FabricanteServico fabricanteServico = new FabricanteServico();
 
+
+        // GET: Produtos/
         private ActionResult ObterVisaoProdutoPorId(long? id)
         {
             if (id == null)
@@ -37,17 +38,13 @@ namespace _1__Aplicacao.Controllers
         {
             if (produto == null)
             {
-                ViewBag.CategoriaId = new SelectList(categoriaServico.ObterCategoriasClassificadasPorNome(),
-                "CategoriaId", "Nome");
-                ViewBag.FabricanteId = new SelectList(fabricanteServico.ObterFabricantesClassificadosPorNome(),
-                "FabricanteId", "Nome");
+                ViewBag.CategoriaId = new SelectList(categoriaServico.ObterCategoriasClassificadasPorNome(), "CategoriaId", "Nome");
+                ViewBag.FabricanteId = new SelectList(fabricanteServico.ObterFabricantesClassificadosPorNome(), "FabricanteId", "Nome");
             }
             else
             {
-                ViewBag.CategoriaId = new SelectList(categoriaServico.ObterCategoriasClassificadasPorNome(),
-                "CategoriaId", "Nome", produto.CategoriaId);
-                ViewBag.FabricanteId = new SelectList(fabricanteServico.ObterFabricantesClassificadosPorNome(),
-                "FabricanteId", "Nome", produto.FabricanteId);
+                ViewBag.CategoriaId = new SelectList(categoriaServico.ObterCategoriasClassificadasPorNome(), "CategoriaId", "Nome", produto.CategoriaId);
+                ViewBag.FabricanteId = new SelectList(fabricanteServico.ObterFabricantesClassificadosPorNome(), "FabricanteId", "Nome", produto.FabricanteId);
             }
         }
 
@@ -61,6 +58,7 @@ namespace _1__Aplicacao.Controllers
                     produtoServico.GravarProduto(produto);
                     return RedirectToAction("Index");
                 }
+                PopularViewBag(produto);
                 return View(produto);
             }
             catch
@@ -68,17 +66,14 @@ namespace _1__Aplicacao.Controllers
                 return View(produto);
             }
         }
-
-        /*-------------------------------------------------------------------------------------*/
         // GET: Produtos
         public ActionResult Index()
         {
             return View(produtoServico.ObterProdutosClassificadosPorNome());
         }
 
-
-        // GET: Produtos/Details/
-        public ActionResult Details(int? id)
+        // GET: Produtos/Details/5
+        public ActionResult Details(long? id)
         {
             return ObterVisaoProdutoPorId(id);
         }
@@ -97,27 +92,27 @@ namespace _1__Aplicacao.Controllers
             return GravarProduto(produto);
         }
 
-        // GET: Produtos/Edit
+        // GET: Produtos/Edit/5
         public ActionResult Edit(long? id)
         {
             PopularViewBag(produtoServico.ObterProdutoPorId((long)id));
             return ObterVisaoProdutoPorId(id);
         }
 
-        // POST: Produtos/Edit
+        // POST: Produtos/Edit/5
         [HttpPost]
         public ActionResult Edit(Produto produto)
         {
             return GravarProduto(produto);
         }
 
-        // GET: Produtos/Delete
+        // GET: Produtos/Delete/5
         public ActionResult Delete(long? id)
         {
             return ObterVisaoProdutoPorId(id);
         }
 
-        // POST: Produtos/Delete
+        // POST: Produtos/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
