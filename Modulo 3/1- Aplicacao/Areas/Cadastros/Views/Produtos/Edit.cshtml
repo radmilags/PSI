@@ -1,0 +1,30 @@
+﻿@model Modelo.Cadastros.Produto
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Visualizando os dados de um PRODUTO";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Alteração dos dados de um PRODUTO
+        </div>
+        <div class="panel-body">
+            @Html.Partial("~/Areas/Cadastros/Views/Produtos/_PartialEditContentPanel.cshtml", Model)
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Gravar alterações" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section ScriptPage {
+    <script type="text/javascript">
+$(document).ready(function () {
+$('li').removeClass("active");
+$('#liProdutos').addClass("active");
+});
+    </script>
+}

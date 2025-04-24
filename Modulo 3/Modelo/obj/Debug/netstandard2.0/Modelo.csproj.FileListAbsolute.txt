@@ -1,0 +1,9 @@
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\bin\Debug\netstandard2.0\Modelo.pdb
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\obj\Debug\netstandard2.0\Modelo.dll
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\obj\Debug\netstandard2.0\Modelo.pdb
+C:\Users\milae\Source\Repos\radmilags\PSI\Modulo 3\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
